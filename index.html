@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Obtener dirección IP</title>
+  </head>
+  <body>
+    <h1>Mi dirección IP es:</h1>
+    <p id="ip-address"></p>
+    <script>
+      fetch("https://api.ipify.org?format=json")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("ip-address").textContent = data.ip;
+        })
+        .catch((error) => {
+          console.error("Error al obtener la dirección IP:", error);
+        });
+    </script>
+  </body>
+</html>
